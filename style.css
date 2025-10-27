@@ -1,0 +1,445 @@
+/* TEMEL STİLLER ve SİBER GÜVENLİK TEMASI */
+:root {
+    --bg-color: #1a1a1a;
+    --sidebar-bg: #101010;
+    --editor-bg: #1a1a1a;
+    --console-bg: #101010;
+    --text-color: #e0e0e0;
+    --text-color-light: #9a9a9a;
+    --border-color: #333333;
+    --accent-color: #00ff9c;
+    --accent-text: #101010;
+    --button-bg: #00ff9c;
+    --button-text: #101010;
+    --button-hover: #4dffbd;
+    --danger-color: #ff8a80;
+    --font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 14px;
+    overflow: hidden;
+}
+
+/* ANA LAYOUT */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 1. SÜTUN: Navigasyon/Kenar Çubuğu */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--border-color);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+.sidebar h2 {
+    font-size: 20px;
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(0, 255, 156, 0.5);
+}
+
+#reset-progress-button {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.sidebar nav {
+    width: 100%;
+}
+#lesson-tree-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.topic-header {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+}
+.topic-header:hover {
+    color: var(--button-hover);
+}
+.topic-header:first-child {
+    margin-top: 0;
+}
+.topic-header::before {
+    content: '+';
+    position: absolute;
+    right: 5px;
+    top: 0;
+    font-size: 20px;
+    color: var(--text-color-light);
+}
+.topic-header.active::before {
+    content: '−';
+}
+.exercise-list {
+    list-style: none;
+    padding-left: 10px;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.exercise-list.expanded {
+    max-height: 1000px; /* İçeriğin sığabileceği kadar büyük bir değer */
+    transition: max-height 0.5s ease-in;
+}
+.exercise-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease-in-out;
+    border-left: 3px solid transparent;
+    color: var(--text-color-light);
+    font-size: 13px;
+    position: relative;
+}
+.exercise-item:hover {
+    background-color: #2a2a2a;
+    color: var(--text-color);
+    border-left: 3px solid var(--accent-color);
+}
+.exercise-item.active {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    font-weight: 700;
+    border-left: 3px solid var(--accent-color);
+}
+.exercise-item.completed {
+    color: var(--text-color-light);
+}
+.exercise-item.completed::after {
+    content: '✓';
+    color: var(--accent-color);
+    font-weight: 700;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.exercise-item.completed.active {
+    color: var(--accent-text);
+}
+
+
+/* 2. SÜTUN: İçerik Alanı */
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.content h1 {
+    margin-top: 0;
+    font-size: 28px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    color: var(--accent-color);
+}
+.content p {
+    line-height: 1.8;
+    font-size: 16px;
+}
+.content code {
+    background-color: var(--console-bg);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+}
+.content pre {
+    background-color: var(--console-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    overflow-x: auto;
+}
+.content .challenge {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+.content .challenge h3 {
+    margin-top: 0;
+}
+#challenge-hint {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--console-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--text-color-light);
+    color: var(--text-color-light);
+    border-radius: 4px;
+    font-style: italic;
+}
+#challenge-hint code {
+    color: var(--accent-color);
+    font-style: normal;
+}
+
+#ask-gemini-button {
+    display: inline-block; /* Buton gibi davranması için */
+    margin-top: 30px; /* Üstteki meydan okuma kutusundan boşluk */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    /* Opsiyonel: Farklı bir görünüm için */
+    background-color: var(--sidebar-bg);
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color);
+}
+#ask-gemini-button:hover {
+    background-color: #2a2a2a;
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+.external-icon {
+    font-size: 0.8em; /* İkonu biraz küçült */
+    margin-left: 5px;
+    display: inline-block;
+    transform: translateY(-1px); /* Dikey hizalama */
+}
+
+/* 3. SÜTUN: Kod Editörü ve Konsol */
+.code-area {
+    width: 50%;
+    max-width: 50%;
+    background-color: var(--editor-bg);
+    border-left: 2px solid var(--border-color);
+    flex-shrink: 0;
+    height: 100%;
+    /* YENİ: Mutlak konumlandırma için referans */
+    position: relative;
+    /* display: grid/flex kaldırıldı */
+    overflow: hidden; /* Taşmayı engelle */
+}
+.editor-pane {
+    /* YENİ: Mutlak Konumlandırma */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* YENİ: Yüksekliği hesapla (Konsolun border'ını çıkar) */
+    height: calc(60% - 2px); /* Konsol %40 alacak, bu %60 - border */
+    /* İsteğe bağlı minimum yükseklik */
+    min-height: 350px;
+
+    /* İç düzen için flex kalmalı */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.editor-header {
+    padding: 10px 15px;
+    background-color: var(--sidebar-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.editor-header span {
+    color: #4CAF50;
+}
+#code-editor {
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+}
+.editor-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Tüm Utility Butonlar için Temel */
+.utility-button {
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    font-family: var(--font-family);
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+/* İkon Buton Stili */
+.icon-button {
+    font-size: 18px;
+    padding: 6px 8px;
+    line-height: 1;
+    background-color: transparent;
+    color: var(--text-color-light);
+    border: none;
+}
+.icon-button:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 255, 156, 0.1);
+}
+.icon-button.danger {
+    color: var(--danger-color);
+}
+.icon-button.danger:hover {
+    background-color: rgba(255, 138, 128, 0.1);
+}
+
+/* Metinli Utility Butonlar (Sonraki Alıştırma) */
+.utility-button.primary {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border: 1px solid var(--accent-color);
+}
+.utility-button.primary:hover {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
+    box-shadow: 0 0 10px rgba(0, 255, 156, 0.5);
+}
+
+/* İlerlemeyi Sıfırla Butonu (Sidebar'da, metinli) */
+#reset-progress-button.danger {
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    background-color: transparent;
+}
+#reset-progress-button.danger:hover {
+    background-color: var(--danger-color);
+    color: var(--accent-text);
+    box-shadow: 0 0 10px rgba(255, 138, 128, 0.5);
+}
+
+/* Kodu Çalıştır Butonu */
+#run-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    font-family: var(--font-family);
+}
+#run-button:hover {
+    background-color: var(--button-hover);
+    box-shadow: 0 0 10px rgba(0, 255, 156, 0.5);
+}
+#run-button:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Konsol/Test Paneli */
+.console-pane {
+    /* YENİ: Mutlak Konumlandırma */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%; /* Sabit yükseklik */
+
+    /* İç düzen için flex kalmalı */
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid var(--border-color);
+    background-color: var(--console-bg);
+    overflow: hidden; /* Taşmayı engelle */
+}
+.tab-header {
+    display: flex;
+    background-color: var(--sidebar-bg);
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+.tab-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-color-light);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+.tab-item:hover {
+    color: var(--text-color);
+}
+.tab-item.active {
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+.tab-content {
+    flex-grow: 1; /* Konsol pane içinde kalan alanı doldurur */
+    position: relative;
+    overflow: hidden;
+}
+.tab-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-size: 15px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: auto;
+    color: var(--text-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.tab-pane.active {
+    opacity: 1;
+    visibility: visible;
+}
+#console-output .error, #test-result-output .error {
+    color: var(--danger-color);
+}
+#console-output .system, #test-result-output .system {
+    color: var(--text-color-light);
+    font-style: italic;
+}
+#test-result-output .success {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+#test-result-output .failure {
+    color: var(--danger-color);
+    font-weight: 700;
+}

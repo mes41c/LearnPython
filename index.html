@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCode Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="light-theme.css">
+
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/theme-vibrant_ink.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/theme-chrome.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/mode-python.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <h2>[SC-ACADEMY]</h2>
+
+            <button id="theme-toggle-button" class="utility-button">Tema Değiştir</button>
+
+            <button id="reset-progress-button" class="utility-button danger">
+                İlerlemeyi Sıfırla
+            </button>
+            <nav id="lesson-nav">
+                <ul id="lesson-tree-container">
+                    </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1 id="lesson-title">Yükleniyor...</h1>
+            <div id="lesson-description">
+                <p>Lütfen bir ders seçin.</p>
+            </div>
+            <div class="challenge">
+                <h3 id="challenge-title"></h3>
+                <div id="challenge-description"></div>
+                <div id="challenge-hint"></div>
+            </div>
+
+            <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" id="ask-gemini-button" class="utility-button ask-gemini">
+                Detaylı sorularınız için Gemini'a sorabilirsiniz 
+                <span class="external-icon">↗</span> </a>
+        </main>
+
+        <aside class="code-area">
+
+            <div class="editor-pane">
+                <div class="editor-header">
+                    <span>Python // secure_runtime</span>
+                    <div class="editor-controls">
+                        <button id="reset-code-button" class="utility-button icon-button danger" title="Kodu Sıfırla">🔄</button>
+                        <button id="hint-button" class="utility-button icon-button" title="İpucu Göster">💡</button>
+                        <button id="solution-button" class="utility-button icon-button" title="Cevabı Göster">👁️</button>
+                        <button id="next-exercise-button" class="utility-button primary">
+                            Sonraki Alıştırma &gt;
+                        </button>
+                        <button id="run-button" disabled>► Çalıştır</button>
+                    </div>
+                </div>
+                <div id="code-editor"></div>
+            </div>
+
+            <div class="console-pane">
+                <div class="tab-header">
+                    <div class="tab-item active" data-target="console-output">KONSOL</div>
+                    <div class="tab-item" data-target="test-result-output">TEST SONUCU</div>
+                </div>
+                <div class="tab-content">
+                    <div id="console-output" class="tab-pane active">
+                        <span class="system">Python çalışma ortamı yükleniyor... Lütfen bekleyin.</span>
+                    </div>
+                    <div id="test-result-output" class="tab-pane">
+                        <span class="system">Kodu çalıştırdıktan sonra test sonucu burada görünecek.</span>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

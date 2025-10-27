@@ -1,0 +1,211 @@
+/* Açık Tema Değişkenleri ve Geçersiz Kılmalar */
+body.light-theme {
+    --bg-color: #f8f9fa;        /* Açık gri arka plan */
+    --sidebar-bg: #e9ecef;    /* Biraz daha koyu gri kenar çubuğu */
+    --editor-bg: #ffffff;        /* Beyaz editör */
+    --console-bg: #f1f3f5;    /* Çok açık gri konsol */
+    --text-color: #212529;      /* Koyu metin */
+    --text-color-light: #6c757d; /* Orta gri metin */
+    --border-color: #dee2e6;      /* Açık gri sınırlar */
+    
+    --accent-color: #007bff;     /* Mavi vurgu rengi */
+    --accent-text: #ffffff;      /* Vurgu üzerindeki metin (beyaz) */
+    
+    --button-bg: #007bff;
+    --button-text: #ffffff;
+    --button-hover: #0056b3;
+
+    --danger-color: #dc3545;     /* Kırmızı */
+}
+
+/* Açık tema için özel geçersiz kılmalar */
+body.light-theme .sidebar h2,
+body.light-theme .content h1,
+body.light-theme .topic-header {
+    color: var(--accent-color);
+    text-shadow: none; /* Gölgeyi kaldır */
+}
+
+body.light-theme .topic-header::before {
+     color: var(--text-color-light);
+}
+
+body.light-theme .exercise-item:hover {
+    background-color: #dee2e6;
+    color: var(--text-color);
+    border-left: 3px solid var(--accent-color);
+}
+
+body.light-theme .exercise-item.active {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border-left: 3px solid var(--accent-color);
+}
+
+body.light-theme .exercise-item.completed::after {
+    color: #28a745; /* Yeşil tik işareti */
+}
+
+body.light-theme .content code {
+    background-color: var(--console-bg);
+    color: #e83e8c; /* Pembe kod rengi */
+    border: 1px solid var(--border-color);
+}
+body.light-theme .content pre {
+    background-color: var(--console-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+body.light-theme .content .challenge {
+    background-color: #ffffff; /* Beyaz meydan okuma kutusu */
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+}
+
+body.light-theme #challenge-hint {
+    background-color: var(--console-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--text-color-light);
+    color: var(--text-color-light);
+}
+
+/* Editör ve Konsol */
+body.light-theme .code-area,
+body.light-theme .editor-header,
+body.light-theme .sidebar, /* Sidebar'ı da ekleyelim */
+body.light-theme .tab-header {
+    background-color: var(--sidebar-bg); /* Editör başlığı ve sekme başlığı için açık gri */
+    border-color: var(--border-color);
+}
+
+body.light-theme .editor-header span {
+    color: #28a745; /* Yeşil Python yazısı */
+}
+
+body.light-theme #code-editor {
+    background-color: var(--editor-bg); /* Editör içi beyaz */
+}
+
+/* Ace Editor Açık Tema Uyarlamaları (Basit) */
+/* Daha iyi bir görünüm için Ace'in kendi açık temasını yüklemek daha iyidir */
+body.light-theme #code-editor .ace_gutter {
+    background: #f0f0f0;
+    color: #333;
+}
+body.light-theme #code-editor .ace_print-margin {
+    background: #e8e8e8;
+}
+body.light-theme #code-editor .ace_content {
+    background-color: var(--editor-bg);
+    color: var(--text-color);
+}
+body.light-theme #code-editor .ace_cursor {
+    color: var(--text-color);
+}
+body.light-theme #code-editor .ace_marker-layer .ace_active-line {
+    background: #efefef;
+}
+body.light-theme #code-editor .ace_marker-layer .ace_selection {
+    background: #bdd5fc;
+}
+/* Anahtar kelimeler vb. için daha fazla stil gerekebilir */
+
+
+body.light-theme .console-pane {
+     background-color: var(--console-bg);
+     border-color: var(--border-color);
+}
+body.light-theme .tab-item {
+    color: var(--text-color-light);
+}
+body.light-theme .tab-item:hover {
+    color: var(--text-color);
+}
+body.light-theme .tab-item.active {
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+body.light-theme .tab-pane {
+    color: var(--text-color);
+}
+
+body.light-theme #console-output .error,
+body.light-theme #test-result-output .error {
+    color: var(--danger-color);
+}
+body.light-theme #console-output .system,
+body.light-theme #test-result-output .system {
+    color: var(--text-color-light);
+}
+body.light-theme #test-result-output .success {
+    color: #28a745; /* Daha belirgin bir yeşil */
+    font-weight: 700;
+}
+body.light-theme #test-result-output .failure {
+    color: var(--danger-color);
+    font-weight: 700;
+}
+
+/* Butonlar */
+body.light-theme .utility-button {
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+body.light-theme .utility-button:hover {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+body.light-theme .icon-button {
+    color: var(--text-color-light);
+    border: none;
+    background-color: transparent;
+}
+body.light-theme .icon-button:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 123, 255, 0.1);
+}
+body.light-theme .icon-button.danger {
+    color: var(--danger-color);
+}
+body.light-theme .icon-button.danger:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+body.light-theme .utility-button.primary {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border: 1px solid var(--accent-color);
+}
+body.light-theme .utility-button.primary:hover {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
+}
+
+body.light-theme #reset-progress-button.danger {
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    background-color: transparent;
+}
+body.light-theme #reset-progress-button.danger:hover {
+    background-color: var(--danger-color);
+    color: var(--accent-text);
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.3);
+}
+
+body.light-theme #run-button {
+    background-color: #28a745; /* Yeşil Çalıştır butonu */
+    color: #ffffff;
+    border: none;
+}
+body.light-theme #run-button:hover {
+    background-color: #218838;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+}
+body.light-theme #run-button:disabled {
+    background-color: #ced4da;
+    color: #6c757d;
+    box-shadow: none;
+}
