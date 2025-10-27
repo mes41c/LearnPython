@@ -52,7 +52,7 @@ Bu projeyi geliştirirken hedeflenen kazanımlar:
 
 ## 👤 Hakkımda
 
-Ben [Adınız Soyadınız], Ege Üniversitesi'nde Siber Güvenlik Analistliği ve Operatörlüğü önlisans programında öğrenim görmekteyim. Siber güvenlik alanında uzmanlaşarak ülkeme katkıda bulunmayı hedefliyorum. Bu proje, bu hedefe ulaşma yolunda Python ve web teknolojileri becerilerimi geliştirmek amacıyla yaptığım bir çalışmadır.
+Ben Emir Sakın, Ege Üniversitesi'nde Siber Güvenlik Analistliği ve Operatörlüğü önlisans programında öğrenim görmekteyim. Siber güvenlik alanında uzmanlaşarak ülkeme katkıda bulunmayı hedefliyorum. Bu proje, bu hedefe ulaşma yolunda Python ve web teknolojileri becerilerimi geliştirmek amacıyla Yapay Zeka(GEMINI) yardımıyla yaptığım bir çalışmadır.
 
 * **LinkedIn:** [www.linkedin.com/in/mes-41c](www.linkedin.com/in/mes-41c)
 * **GitHub:** [github.com/mes41c](https://github.com/mes41c)
