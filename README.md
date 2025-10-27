@@ -2,6 +2,8 @@
 
 ![Proje Arayüzü](arayuz.png)
 
+CANLI DEMO: https://learnpython.mes41.site/
+
 Bu proje, siber güvenlik alanında uzmanlaşarak Türkiye'ye faydalı olma hedefim doğrultusunda, Python programlama dilini öğrenme ve pekiştirme sürecimde bana yardımcı olması amacıyla kişisel olarak geliştirilmiştir. Siber güvenlik operasyonlarında Python'un otomasyon, analiz ve araç geliştirme yeteneklerinden en iyi şekilde faydalanmak için sağlam bir temel oluşturmayı hedeflemektedir.
 
 Proje, DataCamp, Codecademy gibi interaktif öğrenme platformlarından ilham alınarak tasarlanmış ve modern web teknolojileri kullanılarak hayata geçirilmiştir.
