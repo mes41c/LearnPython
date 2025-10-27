@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecureCode Platform</title>
 
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -25,15 +27,14 @@
 
         <aside class="sidebar">
             <h2>[SC-ACADEMY]</h2>
-
-            <button id="theme-toggle-button" class="utility-button">Tema Değiştir</button>
-
+            <button id="theme-toggle-button" class="utility-button icon-button theme-button" title="Temayı Değiştir">
+                <span id="theme-icon"></span>
+            </button>
             <button id="reset-progress-button" class="utility-button danger">
                 İlerlemeyi Sıfırla
             </button>
             <nav id="lesson-nav">
-                <ul id="lesson-tree-container">
-                    </ul>
+                <ul id="lesson-tree-container"></ul>
             </nav>
         </aside>
 
@@ -47,14 +48,14 @@
                 <div id="challenge-description"></div>
                 <div id="challenge-hint"></div>
             </div>
-
             <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" id="ask-gemini-button" class="utility-button ask-gemini">
                 Detaylı sorularınız için Gemini'a sorabilirsiniz 
-                <span class="external-icon">↗</span> </a>
+                <span class="external-icon">↗</span>
+            </a>
         </main>
 
         <aside class="code-area">
-
+            
             <div class="editor-pane">
                 <div class="editor-header">
                     <span>Python // secure_runtime</span>
