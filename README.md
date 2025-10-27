@@ -1,6 +1,6 @@
 # SecureCode Platform: Siber Güvenlik için İnteraktif Python Öğrenme Ortamı
 
-![Proje Arayüzü](arayuz.png) ##  мотивация (Motivasyon)
+![Proje Arayüzü](arayuz.png)
 
 Bu proje, siber güvenlik alanında uzmanlaşarak Türkiye'ye faydalı olma hedefim doğrultusunda, Python programlama dilini öğrenme ve pekiştirme sürecimde bana yardımcı olması amacıyla kişisel olarak geliştirilmiştir. Siber güvenlik operasyonlarında Python'un otomasyon, analiz ve araç geliştirme yeteneklerinden en iyi şekilde faydalanmak için sağlam bir temel oluşturmayı hedeflemektedir.
 
